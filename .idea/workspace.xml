@@ -14,10 +14,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="579725cf-ea43-4f00-8537-ac874bf3d29b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/AddCategoryActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/CategoriesActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/menu/main_menu.xml" afterDir="false" />
+    <list default="true" id="579725cf-ea43-4f00-8537-ac874bf3d29b" name="Default Changelist" comment="adding category screens">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/dao/CategoryDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/manager/CategoriesRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/model/CategoryEntry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/adapter/CatogoriesAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/viewmodel/AddCategoryViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/viewmodel/AddCategoryViewModelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/viewmodel/CategoryViewModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -28,16 +32,15 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/dao/TaskDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/dao/TaskDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/model/TaskEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/model/TaskEntry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/adapter/CustomCursorAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/adapter/TaskAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/adapter/TaskAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/database/AppDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/di/database/AppDatabase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/AddCategoryActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/AddCategoryActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/AddTaskActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/AddTaskActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/CategoriesActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/CategoriesActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/battlebuddies/ui/view/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_task.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_task.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/task_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/task_layout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_category.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_category.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_categories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_categories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +48,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[df9d5467]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -83,6 +86,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="resourceFile" />
+        <option value="layoutResourceFile_vertical" />
       </list>
     </option>
   </component>
@@ -102,6 +106,13 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.battlebuddies" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.battlebuddies.ui.viewmodel" />
+      <recent name="com.battlebuddies.di.dao" />
+      <recent name="com.battlebuddies.di.manager" />
+      <recent name="com.battlebuddies.di.model" />
+      <recent name="com.battlebuddies.ui.adapter" />
     </key>
   </component>
   <component name="RunManager">
@@ -173,6 +184,14 @@
       <option name="presentableId" value="Default" />
       <updated>1655358061292</updated>
     </task>
+    <task id="LOCAL-00001" summary="adding category screens">
+      <created>1655362396752</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655362396752</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,5 +204,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="adding category screens" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding category screens" />
   </component>
 </project>
