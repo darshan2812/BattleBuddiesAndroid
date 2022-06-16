@@ -32,6 +32,10 @@ public class TasksRepository  {
         database.taskDao().deleteTask(taskEntry);
     }
 
+    public void deleteTasks(int id) {
+        database.taskDao().deleteTask(id);
+    }
+
     public void updateTaskById(TaskEntry task) {
         database.taskDao().updateTask(task);
     }

@@ -98,7 +98,7 @@ public class SubTaskListActivity extends AppCompatActivity implements TaskAdapte
          An ItemTouchHelper enables touch behavior (like swipe and move) on each ViewHolder,
          and uses callbacks to signal when a user is performing these actions.
          */
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        /*new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 return false;
@@ -119,7 +119,7 @@ public class SubTaskListActivity extends AppCompatActivity implements TaskAdapte
                     }
                 });
             }
-        }).attachToRecyclerView(mRecyclerView);
+        }).attachToRecyclerView(mRecyclerView);*/
 
         /*
          Set the Floating Action Button (FAB) to its corresponding View.
@@ -147,6 +147,9 @@ public class SubTaskListActivity extends AppCompatActivity implements TaskAdapte
                 Log.d(TAG, "Updating list of tasks from LiveData in ViewModel");
                 mAdapter.setTasks(taskEntries);
                 mAdapter.notifyDataSetChanged(); //optional statement. will work the same without also
+                if (taskEntries == null || taskEntries.size() == 0){
+                    finish();
+                }
             }
         });
     }

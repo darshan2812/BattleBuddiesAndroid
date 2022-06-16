@@ -42,5 +42,11 @@ public class AddTaskViewModel extends ViewModel {
         return tasksRepository.getloadAllTasks();
     }
 
+    public void deleteTask(TaskEntry taskEntry) {
+        tasksRepository.deleteTasks(taskEntry);
+    }
 
+    public void deleteTask(int id) {
+        tasksRepository.deleteTasks(id);
+    }
 }

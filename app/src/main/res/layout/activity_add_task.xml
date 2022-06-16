@@ -80,4 +80,16 @@
         android:text="@string/add_button"
         android:textColor="@android:color/primary_text_dark" />
 
+    <Button
+        android:id="@+id/completeButton"
+        style="@style/TextAppearance.AppCompat.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp"
+        android:visibility="gone"
+        android:background="@color/colorPrimary"
+        android:text="@string/complete_task"
+        android:textColor="@android:color/primary_text_dark" />
+
 </LinearLayout>

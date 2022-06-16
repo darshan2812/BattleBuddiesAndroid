@@ -67,6 +67,7 @@ public class AddTaskActivity extends AppCompatActivity {
     List<CategoryEntry> mCategoryEntries;
     List<TaskEntry> mTaskEntries;
     TextView tvCategory,tvParentTask;
+    Button completeButton;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
@@ -106,12 +107,17 @@ public class AddTaskActivity extends AppCompatActivity {
                     if (mTaskId == DEFAULT_TASK_ID) {
                         spinnerPatentTask.setVisibility(View.GONE);
                         tvParentTask.setVisibility(View.GONE);
+                        completeButton.setVisibility(View.VISIBLE);
                         mTaskId = intent.getIntExtra(EXTRA_TASK_ID, DEFAULT_TASK_ID);
                         viewModel.getTask(mTaskId).observe(AddTaskActivity.this, new Observer<TaskEntry>() {
                             @Override
                             public void onChanged(TaskEntry taskEntry) {
-                                viewModel.getTask(mTaskId).removeObserver(this);
-                                populateUI(taskEntry);
+                                if (taskEntry != null) {
+                                    categoryId = taskEntry.getCategoryId();
+                                    taskId = taskEntry.getPatentTaskId();
+                                    viewModel.getTask(mTaskId).removeObserver(this);
+                                    populateUI(taskEntry);
+                                }
                             }
                         });
                     }
@@ -168,12 +174,27 @@ public class AddTaskActivity extends AppCompatActivity {
         spinnerPatentTask = findViewById(R.id.spinnerPatentTask);
         tvCategory = findViewById(R.id.tvCategory);
         tvParentTask = findViewById(R.id.tvParentTask);
+        completeButton = findViewById(R.id.completeButton);
 
         mButton = findViewById(R.id.saveButton);
         mButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 onSaveButtonClicked();
+            }
+        });
+        completeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mTaskId != DEFAULT_TASK_ID) {
+                    AppExecutors.getInstance().diskIO().execute(new Runnable() {
+                        @Override
+                        public void run() {
+                            viewModel.deleteTask(mTaskId);
+                        }
+                    });
+                    finish();
+                }
             }
         });
     }
@@ -223,26 +244,29 @@ public class AddTaskActivity extends AppCompatActivity {
      * onSaveButtonClicked is called when the "save" button is clicked.
      * It retrieves user input and inserts that new task data into the underlying database.
      */
+    int categoryId = -1;
+    int taskId = -1;
     public void onSaveButtonClicked() {
         String title = editTextTitle.getText().toString();
         String description = editTextDescription.getText().toString();
-        int categoryId = -1;
-        if (mCategoryEntries != null && mCategoryEntries.size() > 0){
-            for (int i = 0; i < mCategoryEntries.size(); i++) {
-                if (mCategoryEntries.get(i).getTitle().equalsIgnoreCase(spinnerCategories.getSelectedItem().toString())){
-                    categoryId = mCategoryEntries.get(i).getId();
-                }
-            }
 
-        }
-        int taskId = -1;
-        if (mTaskEntries != null && mTaskEntries.size() > 0 && spinnerPatentTask.getSelectedItemPosition() != 0){
-            for (int i = 0; i < mTaskEntries.size(); i++) {
-                if (mTaskEntries.get(i).getTitle().equalsIgnoreCase(spinnerPatentTask.getSelectedItem().toString())){
-                    taskId = mTaskEntries.get(i).getId();
+        if (mTaskId == DEFAULT_TASK_ID) {
+            if (mCategoryEntries != null && mCategoryEntries.size() > 0) {
+                for (int i = 0; i < mCategoryEntries.size(); i++) {
+                    if (mCategoryEntries.get(i).getTitle().equalsIgnoreCase(spinnerCategories.getSelectedItem().toString())) {
+                        categoryId = mCategoryEntries.get(i).getId();
+                    }
                 }
-            }
 
+            }
+            if (mTaskEntries != null && mTaskEntries.size() > 0 && spinnerPatentTask.getSelectedItemPosition() != 0) {
+                for (int i = 0; i < mTaskEntries.size(); i++) {
+                    if (mTaskEntries.get(i).getTitle().equalsIgnoreCase(spinnerPatentTask.getSelectedItem().toString())) {
+                        taskId = mTaskEntries.get(i).getId();
+                    }
+                }
+
+            }
         }
         Date date = new Date();
 

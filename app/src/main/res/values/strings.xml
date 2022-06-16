@@ -27,5 +27,6 @@
     <string name="by_date">By Date</string>
     <string name="by_name">By Name</string>
     <string name="parent_task">Parent Task</string>
+    <string name="complete_task">complete task</string>
 
 </resources>
