@@ -35,6 +35,10 @@
             android:name="com.battlebuddies.ui.view.AddCategoryActivity"
             android:label="@string/add_category"
             android:launchMode="singleTop" />
+
+        <activity
+            android:name="com.battlebuddies.ui.view.SubTaskListActivity"
+            android:launchMode="singleTop" />
     </application>
 
 </manifest>
